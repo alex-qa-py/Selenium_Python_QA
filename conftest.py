@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
-
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.microsoft import IEDriverManager
 
 def pytest_addoption(parser):
     parser.addoption("--maximized", action="store_true")
@@ -19,13 +21,13 @@ def browser(request):
     driver = None
 
     if browser == "chrome":
-        driver = webdriver.Chrome(executable_path="drivers/chromedriver.exe")
+        driver = webdriver.Chrome(ChromeDriverManager().install())
 
     if browser == "ie":
-        driver = webdriver.Ie(executable_path="drivers/IEDriverServer.exe")
+        driver = webdriver.Ie(IEDriverManager().install())
 
     if browser == "firefox":
-        driver = webdriver.Firefox(executable_path="drivers/geckodriver.exe")
+        driver = webdriver.Firefox(GeckoDriverManager().install())
 
     if headless:
         driver.headless = True
@@ -33,8 +35,10 @@ def browser(request):
     if maximized:
         driver.maximize_window()
 
-    driver.get(url)
-    driver.url = url
+    def open(path=""):
+        return driver.get(url + path)
+
+    driver.open = open
 
     def tear_down():
         driver.close()
