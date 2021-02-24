@@ -1,8 +1,8 @@
 {
-    "users": [
-        {
-            "admin_login": "user",
-            "admin_pass": "Qwerty123"
-        }
-    ]
+  "users": [
+    {
+      "admin_login": "user",
+      "admin_pass": "Qwerty123"
+    }
+  ]
 }

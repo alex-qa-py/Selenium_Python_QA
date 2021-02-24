@@ -13,7 +13,10 @@ class BasePage:
         return self.browser.find_elements(by, selector)
 
     def _wait_for_visible(self, selector, index=0, wait=30):
-        return WebDriverWait(self.browser, wait).until(EC.visibility_of(self.__element(selector, index)))
+        try:
+            WebDriverWait(self.browser, wait).until(EC.visibility_of(self.__element(selector, index)))
+        except:
+            raise AssertionError("Selector not found")
 
     def _click(self, selector, index=0):
         self._wait_for_visible(selector, index)
