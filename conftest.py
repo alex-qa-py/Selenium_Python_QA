@@ -4,6 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import IEDriverManager
 
+
 def pytest_addoption(parser):
     parser.addoption("--maximized", action="store_true")
     parser.addoption("--headless", action="store_true")
