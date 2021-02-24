@@ -55,7 +55,3 @@ class AdminPage(BasePage):
 
     def table(self):
         return self._wait_for_visible(*self.PRODUCTS_TABLE)
-
-
-    def fake(self):
-        return self._wait_for_visible(By.CSS_SELECTOR, "#asd")
