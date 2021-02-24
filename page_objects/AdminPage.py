@@ -2,20 +2,21 @@ from selenium.webdriver.common.by import By
 
 from page_objects.BasePage import BasePage
 
+
 class AdminPage(BasePage):
     INPUT_USERNAME = (By.CSS_SELECTOR, "#input-username")
-    INPUT_PASSWORD = (By.CSS_SELECTOR,"#input-password")
-    RESTORE_PASS_TITLE = (By.CSS_SELECTOR,"span.help-block > a")
-    PANEL_TITLE = (By.CSS_SELECTOR,".panel-title")
-    LOGIN_BUTTON = (By.CSS_SELECTOR,"button.btn.btn-primary")
-    USER_PROFILE = (By.CSS_SELECTOR,"#user-profile")
-    LOG_OUT_BUTTON = (By.CSS_SELECTOR,"i.fa.fa-sign-out")
+    INPUT_PASSWORD = (By.CSS_SELECTOR, "#input-password")
+    RESTORE_PASS_TITLE = (By.CSS_SELECTOR, "span.help-block > a")
+    PANEL_TITLE = (By.CSS_SELECTOR, ".panel-title")
+    LOGIN_BUTTON = (By.CSS_SELECTOR, "button.btn.btn-primary")
+    USER_PROFILE = (By.CSS_SELECTOR, "#user-profile")
+    LOG_OUT_BUTTON = (By.CSS_SELECTOR, "i.fa.fa-sign-out")
     ITEM_CATALOG = (By.CSS_SELECTOR, "#menu-catalog")
-    ITEM_PRODUCTS = (By.XPATH , "//a[text() = \"Products\"]")
-    PRODUCTS_TABLE = (By.CSS_SELECTOR,"#form-product")
+    ITEM_PRODUCTS = (By.XPATH, "//a[text() = \"Products\"]")
+    PRODUCTS_TABLE = (By.CSS_SELECTOR, "#form-product")
 
     def username_input(self):
-        return self. _wait_for_visible(*self.INPUT_USERNAME)
+        return self._wait_for_visible(*self.INPUT_USERNAME)
 
     def password_input(self):
         return self._wait_for_visible(*self.INPUT_PASSWORD)
