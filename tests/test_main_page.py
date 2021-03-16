@@ -1,34 +1,47 @@
+import allure
+
 from page_objects.MainPage import MainPage
 
 LINKS_COUNT = 5
 ROW_COUNT = 4
 
-
+@allure.epic("Main page")
+@allure.description("Checking rowcount of content rows")
 def test_page(browser):
-    browser.open("")
-    class_row = MainPage(browser).page()
+    page = MainPage(browser)
+    page.open()
+    class_row = page.page()
     assert len(class_row) == ROW_COUNT
 
-
+@allure.epic("Main page")
+@allure.description("Checking is_enabled of search button")
 def test_search_button(browser):
-    browser.open("")
-    button = MainPage(browser).search_button()
+    page = MainPage(browser)
+    page.open()
+    button = page.search_button()
     assert button.is_enabled()
 
-
+@allure.epic("Main page")
+@allure.description("Checking visibility of search input")
 def test_search_input(browser):
-    browser.open("")
-    search_input = MainPage(browser).search_input()
+    page = MainPage(browser)
+    page.open()
+    search_input = page.search_input()
     assert search_input.is_displayed()
 
 
+@allure.epic("Main page")
+@allure.description("Checking is_enabled of cart button")
 def test_cart_button(browser):
-    browser.open("")
-    cart = MainPage(browser).cart_button()
+    page = MainPage(browser)
+    page.open()
+    cart = page.cart_button()
     assert cart.is_enabled()
 
-
+@allure.epic("Main page")
+@allure.description("Checking count of search button")
 def test_list_of_links(browser):
-    browser.open("")
-    list_of_links = MainPage(browser).list_of_links()
+    page = MainPage(browser)
+    page.open()
+    list_of_links = page.list_of_links()
     assert len(list_of_links) == LINKS_COUNT
