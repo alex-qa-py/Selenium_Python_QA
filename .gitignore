@@ -22,7 +22,12 @@ var/
 wheels/
 pip-wheel-metadata/
 share/python-wheels/
+/tests/allure_report
+/tests/app.log
 *.egg-info/
+.idea
+geckodriver.log
+drivers/*
 .installed.cfg
 *.egg
 MANIFEST

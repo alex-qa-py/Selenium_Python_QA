@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "admin_login": "user",
+      "admin_pass": "Qwerty123"
+    }
+  ],
+  "env": [
+    {
+      "test_env": "https://192.168.1.48"
+    }
+  ]
+}
